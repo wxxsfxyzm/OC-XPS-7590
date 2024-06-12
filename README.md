@@ -1,6 +1,6 @@
 # OC-XPS-7590
 
-[XPS 7590 with OpenCore](https://github.com/gorquan/OC-XPS-7590)的后续维护版本，已经获得本人授权，感谢原作者的无私奉献，让我们能够在 XPS 7590 上安装 MacOS。本仓库将持续更新，以适配最新的 Opencore 版本和 MacOS 版本。
+[XPS 7590 with OpenCore](https://github.com/gorquan/OC-XPS-7590)的后续维护版本，已经获得作者本人授权，感谢原作者的无私奉献，让我们能够在 XPS 7590 上安装 MacOS。本仓库将持续更新，以适配最新的 Opencore 版本和 MacOS 版本。
 
 x64 的 Hackintosh 已经时日无多，让我们且行且珍惜。
 
@@ -15,7 +15,7 @@ MacOS: 理论上从 Big Sur 到 Sonoma 都可以使用，但是建议使用最�
 | Key        | Value                       |
 | ---------- | --------------------------- |
 | 型号       | XPS-7590                    |
-| CPU        | Intel Core i7 9300H         |
+| CPU        | Intel Core i5 9300H         |
 | 核芯显卡   | Intel Graphics UHD 630      |
 | 内建显示屏 | 15.6" 1080p **非触屏**      |
 | 内存       | 金士顿 16GB DDR4 2666MHz x2 |
@@ -87,6 +87,7 @@ MacOS: 理论上从 Big Sur 到 Sonoma 都可以使用，但是建议使用最�
 ## 结构目录
 
 - 最新版会提供完整的 EFI，目前仓库最新版：**1.0.1**
+- 随本仓库提供几个自用的引导主题，可以自行选择使用
 - 建议自己使用 OCAT 进行后续维护
 
 ## 驱动情况
