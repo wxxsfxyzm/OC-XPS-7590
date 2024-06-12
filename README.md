@@ -95,7 +95,7 @@ MacOS: 理论上从 Big Sur 到 Sonoma 都可以使用，但是建议使用最�
 
 ## 本仓库引导更新日志
 
-原仓库更新日志：**原仓库更新日志请移步原仓库查看**
+[原仓库更新日志](https://github.com/gorquan/OC-XPS-7590?tab=readme-ov-file#引导更新日志)：**原仓库更新日志请移步原仓库查看**
 
 - 2024-06-12
   - 更新 OpenCore 到 1.0.1
