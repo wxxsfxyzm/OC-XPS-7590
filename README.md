@@ -163,6 +163,7 @@ sudo pmset -a tcpkeepalive 0 # 如果仍然睡不着可以尝试一下睡眠期�
 - [@Acidanthera](https://github.com/acidanthera)
 - [@daliansky](https://github.com/daliansky)
 - [@geek5nan](https://github.com/geek5nan/Hackintosh-XPS7590)
+- [@stevezhengshiqi](https://github.com/stevezhengshiqi)
 - [@Dracay](https://github.com/Dracay)
 - [@tiger511](https://github.com/tiger511)
 - [@shadowed87](https://github.com/shadowed87)
@@ -172,4 +173,5 @@ sudo pmset -a tcpkeepalive 0 # 如果仍然睡不着可以尝试一下睡眠期�
 - [@romancin](https://github.com/romancin)
 - [@cholonam](https://github.com/cholonam)
 - [@illusion899](https://github.com/illusion899)
+- [@ic005k](https://github.com/ic005k/OCAuxiliaryTools)
 - 原仓库作者 [@gorquan](https://github.com/gorquan)
