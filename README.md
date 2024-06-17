@@ -89,8 +89,53 @@ MacOS: 理论上从 Big Sur 到 Sonoma 都可以使用，但是建议使用最�
 ## 结构目录
 
 - 最新版会提供完整的 EFI，目前仓库最新版：**1.0.1**
-- 随本仓库提供几个自用的引导主题，可以自行选择使用
 - 建议自己使用 OCAT 进行后续维护
+
+- BOOT EFI 标准引导文件夹
+  - BOOTx64.efi 用于引导 OpenCore，同时解决 Windows 抢占引导优先级问题
+- OC OpenCore 引导程序文件夹
+  - ACPI DSDT/SSDT 补丁文件夹
+    - SSDT-AWAC-DISABLE.aml 用于禁用 AWAC 来启动 RTC
+    - SSDT-EC-USBX.aml 用于在 EC 正常工作时修复 USB 电源
+    - SSDT-EC.aml & SSDT-USBX.aml 用于 fake EC 以及提供 USB 供电，上述两种方案二选一。
+    - SSDT-PLUG.aml 用于修复电源管理，Monterey 以上不再需要
+    - SSDT-PTSWAK.aml 用于修复睡眠唤醒
+    - SSDT-NDGP_OFF.aml 用于禁用独显
+    - SSDT-EXT4-WakeScreen.aml 用于唤醒后亮屏
+    - SSDT-LIDPatch.aml 用于盒盖睡眠
+    - [SSDT-FnInsert_BTNV_dell.aml](#引导补充说明)
+    - SSDT-TB3-7590.aml 用于雷电口
+  - Kexts 内核补丁
+    - Lilu 用于提供插件支持
+    - VirtualSMC 用于提供虚拟 SMC
+    - WhateverGreen 用于提供核显支持
+    - AppleALC 用于提供声卡支持
+    - BlueToolFixup 用于提供蓝牙支持
+    - IntelBluetoothFirmware 用于提供蓝牙支持
+    - AirportItlwm 用于提供无线网卡支持
+    - NVMeFix 用于修复 NVMe 问题
+    - SMCBatteryManager 用于提供电池支持
+    - SMCProcessor 用于提供 CPU 信息支持
+    - SMCSuperIO 用于提供风扇支持
+    - SMCLightSensor 用于提供光感支持
+    - SMCDellSensors 用于提供 dell 传感器支持
+    - USBMap 用于定制 USB
+    - VoodooI2C 用于提供触控板支持
+    - VoodooI2CHID 用于提供触控板支持
+    - VoodooPS2Controller 用于提供键盘支持
+    - VerbStub 用于提供声卡支持
+    - CPUFriend 用于提供 CPU 电源管理
+    - CPUFriendDataProvider 用于提供 CPU 电源管理
+    - HibernateFixup 用于修复休眠问题
+    - HoRNDIS 用于支持安卓手机 USB 网络共享
+    - RestrictEvents 用于修复 OTA 问题
+  - Drivers 驱动
+    - HfsPlus 用于支持 HFS+ 格式
+    - OpenCanopy 用于提供 OpenCore 引导界面
+    - OpenRuntime 用于提供 OpenCore 运行时支持
+  - Resources 随本仓库提供几个自用的引导主题，可以自行选择使用
+  - Tools 工具
+    - CleanNvram 用于清理 NVRAM
 
 ## 驱动情况
 
