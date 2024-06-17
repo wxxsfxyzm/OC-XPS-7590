@@ -12,19 +12,20 @@ MacOS: 理论上从 Big Sur 到 Sonoma 都可以使用，但是建议使用最�
 
 ## 配置信息
 
-| Key        | Value                       |
-| ---------- | --------------------------- |
-| 型号       | XPS-7590                    |
-| CPU        | Intel Core i5 9300H         |
-| 核芯显卡   | Intel Graphics UHD 630      |
-| 内建显示屏 | 15.6" 1080p **非触屏**      |
-| 内存       | 金士顿 16GB DDR4 2666MHz x2 |
-| 板载声卡   | Realtek ALC298/ALC3266      |
-| 无限网卡   | Killer AX1650x (200NGW)     |
+| Key        | Value                          |
+| ---------- | ------------------------------ |
+| 型号       | XPS-7590                       |
+| CPU        | Intel Core i5 9300H            |
+| 核芯显卡   | Intel UHD Graphics 630         |
+| 内建显示屏 | SHP14BA 15.6" 1080p **非触屏** |
+| 内存       | 金士顿 16GB DDR4 2666MHz x2    |
+| 板载声卡   | Realtek ALC298/ALC3266         |
+| 无限网卡   | Killer AX1650x (200NGW)        |
 
 ## 使用前注意
 
 - **请先参考该文章：[XPS 7590 1.6.0 UEFI: unlock undervolting and remove CFG lock](https://www.reddit.com/r/Dell/comments/fzv599/xps_7590_160_uefi_unlock_undervolting_and_remove/)，对 CFG Lock 进行解锁再使用该 OpenCore！**
+- 请先在 BIOS 中将 SATA Mode 设置为 AHCI。
 - 极其不建议使用 OpenCore 对 Windows 进行引导！若要切换开机引导，建议按 F12 选择引导设备。
 - 使用前请先**更新序列号**，即`MLB`、`SystemSerialNumber`和`SystemUUID`，我在 config 中使用`Generate One`进行占位，使用时请自行生成。
 - 推荐的 config 编辑工具：[Opencore Auxiliary Tools](https://github.com/ic005k/OCAuxiliaryTools)
@@ -32,10 +33,10 @@ MacOS: 理论上从 Big Sur 到 Sonoma 都可以使用，但是建议使用最�
 ## 工作情况
 
 - CPU：
-  - 正常工作
   - 正常变频,最低频率 800MHz
   - 温度正常
   - CPU 的调度可以通过[One Key CPU Friend](https://github.com/stevezhengshiqi/one-key-cpufriend)进行调整
+  - 应该不会再出现高负载锁 800Mhz 的玄学情况
 - 板载声卡：
   - 正常工作
   - 支持耳机、内置扬声器和 HDMI 音频输出
@@ -57,6 +58,7 @@ MacOS: 理论上从 Big Sur 到 Sonoma 都可以使用，但是建议使用最�
   - 除 AirPods Pro 2 外正常工作 [No audio output on Airpods Pro 2 #462](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/issues/462)
   - 能够与其他设备正常连接
   - 睡眠唤醒可能需要执行 `sudo killall bluetoothd` 重启 bluetoothd，我用 sleepwatcher 设置了自动化
+  - 不同的系统对蓝牙 kext 的要求不同，详见[OpenIntelWireless/IntelBluetoothFirmware](https://openintelwireless.github.io/IntelBluetoothFirmware/FAQ.html#what-additional-steps-should-i-do-to-make-bluetooth-work-on-macos-monterey-and-newer)
 - 键盘：
   - 正常工作
   - 键盘灯能够正常显示
@@ -72,7 +74,10 @@ MacOS: 理论上从 Big Sur 到 Sonoma 都可以使用，但是建议使用最�
 - 读卡器：
   - 我的读卡器损坏了，无法测试
 - USB
-  - 支持安卓手机 USB 网络共享功能
+  - 所有 USB 端口正常工作
+  - 支持安卓手机 USB 网络共享功能（kext 未启用，如有需求可自行启用`HoRNDIS.kext`）
+  - C 口正常工作，支持 USB3.1 设备热插拔
+  - 雷电口理论上正常工作，未测试
 
 ### 存在问题的设备
 
@@ -97,7 +102,13 @@ MacOS: 理论上从 Big Sur 到 Sonoma 都可以使用，但是建议使用最�
 
 [原仓库更新日志](https://github.com/gorquan/OC-XPS-7590?tab=readme-ov-file#引导更新日志)：**原仓库更新日志请移步原仓库查看**
 
+- 2024-06-17
+
+  - 完善文档
+  - 补充丢失的 kexts
+
 - 2024-06-12
+
   - 更新 OpenCore 到 1.0.1
   - 同步最新 kexts
 
