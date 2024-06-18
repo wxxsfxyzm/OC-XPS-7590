@@ -18,7 +18,7 @@ MacOS: 理论上从 Big Sur 到 Sonoma 都可以使用，但是建议使用最�
 | CPU        | Intel Core i5 9300H            |
 | 核芯显卡   | Intel UHD Graphics 630         |
 | 内建显示屏 | SHP14BA 15.6" 1080p **非触屏** |
-| 内存       | 金士顿 16GB DDR4 2666MHz x2    |
+| 内存       | Samsung 16GB DDR4 2666MHz x2   |
 | 板载声卡   | Realtek ALC298/ALC3266         |
 | 无限网卡   | Killer AX1650x (200NGW)        |
 
