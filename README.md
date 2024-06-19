@@ -94,6 +94,7 @@ MacOS: 理论上从 Big Sur 到 Sonoma 都可以使用，但是建议使用最�
 - BOOT EFI 标准引导文件夹
   - BOOTx64.efi 用于引导 OpenCore，同时解决 Windows 抢占引导优先级问题
 - OC OpenCore 引导程序文件夹
+
   - ACPI DSDT/SSDT 补丁文件夹
     - SSDT-AWAC-DISABLE.aml 用于禁用 AWAC 来启动 RTC
     - SSDT-EC-USBX.aml 用于在 EC 正常工作时修复 USB 电源
@@ -136,6 +137,22 @@ MacOS: 理论上从 Big Sur 到 Sonoma 都可以使用，但是建议使用最�
   - Resources 随本仓库提供几个自用的引导主题，可以自行选择使用
   - Tools 工具
     - CleanNvram 用于清理 NVRAM
+
+- boot-args 说明
+
+  - 必需参数
+
+    - -igfxblt -igfxbls: 修复 Coffee Lake 核显开机黑屏问题，优化亮度调节
+    - agdpmod=vit9696 独显配置
+    - alcverbs=1 用于修复耳机爆音问题
+
+  - 可选参数
+
+    - -v 显示详细启动信息，可用于调试
+    - -lilubetaall 引导测试版系统时候使用
+    - igfxfw=2 启用核显固件补丁，提高性能
+    - darkwake=3 睡眠小憩配置，实测设置为 darkwake=3 没有什么问题
+    - revpatch=sbvmm 配合`RestrictEvents.kext`用于修复 OTA 问题，若仍然无法 OTA 请临时禁用`BluetoolFixup`，更新完毕重新启用即可
 
 ## 驱动情况
 
