@@ -118,7 +118,7 @@ x64 的 Hackintosh 已经时日无多，让我们且行且珍惜。
     - AppleALC 用于提供声卡支持
     - BlueToolFixup 用于提供蓝牙支持
     - IntelBluetoothFirmware 用于提供蓝牙支持
-    - AirportItlwm 用于提供无线网卡支持
+    - Itlwm 用于提供无线网卡支持
     - NVMeFix 用于修复 NVMe 问题
     - SMCBatteryManager 用于提供电池支持
     - SMCProcessor 用于提供 CPU 信息支持
