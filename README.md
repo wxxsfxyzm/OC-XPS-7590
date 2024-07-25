@@ -6,9 +6,9 @@ x64 的 Hackintosh 已经时日无多，让我们且行且珍惜。
 
 ## 引导版本
 
-OpenCore: 1.0.1 开发版（使用[Opencore Auxiliary Tools](https://github.com/ic005k/OCAuxiliaryTools)同步最新版本）
+- OpenCore: 1.0.1 开发版（使用[Opencore Auxiliary Tools](https://github.com/ic005k/OCAuxiliaryTools)同步最新版本）
 
-MacOS: 理论上从 Big Sur 到 Sonoma 都可以使用，但是建议使用最新的版本，本人正在使用 Sonoma 14.5
+- MacOS: 适配 MacOS 15 public beta 1
 
 ## 配置信息
 
@@ -32,6 +32,8 @@ MacOS: 理论上从 Big Sur 到 Sonoma 都可以使用，但是建议使用最�
 
 ## 工作情况
 
+**需要注意**：Wi-Fi 暂时没有原生驱动，I2C 触控板驱动做出了调整
+
 - CPU：
   - 正常变频,最低频率 800MHz
   - 温度正常
@@ -50,11 +52,12 @@ MacOS: 理论上从 Big Sur 到 Sonoma 都可以使用，但是建议使用最�
 - 电池：
   - 正常工作
   - 续航时间可以长达 5 小时（电池健康情况下）
-- 无线网卡：
-  - 正常工作(intel 网卡需要使用[AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases)对应系统的版本)
-  - 目前我使用的是 macOS 14.5，安装其他系统且需要使用 intel 网卡的请自行下载对应版本替换
-  - 由于苹果在 macOS14 移除了白果卡的支持，因此想要免驱请安装 Ventura 以下的版本
-- 蓝牙：
+- **无线网卡**：
+  - 暂时没有原生驱动
+  - 需要使用[itlwm](https://github.com/OpenIntelWireless/itlwm/releases)
+  - 需要搭配使用[HeliPort](https://github.com/OpenIntelWireless/HeliPort/releases)
+- **蓝牙**：
+  - macOS 15 到目前为止蓝牙不需要修改
   - 除 AirPods Pro 2 外正常工作 [No audio output on Airpods Pro 2 #462](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/issues/462)
   - 能够与其他设备正常连接
   - 睡眠唤醒可能需要执行 `sudo killall bluetoothd` 重启 bluetoothd，我用 sleepwatcher 设置了自动化
@@ -63,8 +66,9 @@ MacOS: 理论上从 Big Sur 到 Sonoma 都可以使用，但是建议使用最�
   - 正常工作
   - 键盘灯能够正常显示
   - 快捷键正常工作
-- 触控板：
+- **触控板**：
   - 正常工作
+  - macOS 15 移除了非妙控板以外的所有触控板的 id，所以需要修改 VoodooInput，已经替换，验证正常工作。
 - 睡眠：
   - 正常工作
   - 盒盖睡眠正常工作
@@ -75,7 +79,7 @@ MacOS: 理论上从 Big Sur 到 Sonoma 都可以使用，但是建议使用最�
   - 我的读卡器损坏了，无法测试
 - USB
   - 所有 USB 端口正常工作
-  - 支持安卓手机 USB 网络共享功能（kext 未启用，如有需求可自行启用`HoRNDIS.kext`）
+  - 支持安卓手机 USB 网络共享功能（已经启用`HoRNDIS.kext`）
   - C 口正常工作，支持 USB3.1 设备热插拔
   - 雷电口理论上正常工作，未测试
 
@@ -145,11 +149,12 @@ MacOS: 理论上从 Big Sur 到 Sonoma 都可以使用，但是建议使用最�
     - -igfxblt -igfxbls: 修复 Coffee Lake 核显开机黑屏问题，优化亮度调节
     - agdpmod=vit9696 独显配置
     - alcverbs=1 用于修复耳机爆音问题
+    - -lilubetaall 引导测试版系统时候使用
+    -
 
   - 可选参数
 
     - -v 显示详细启动信息，可用于调试
-    - -lilubetaall 引导测试版系统时候使用
     - igfxfw=2 启用核显固件补丁，提高性能
     - darkwake=3 睡眠小憩配置，实测设置为 darkwake=3 没有什么问题
     - revpatch=sbvmm 配合`RestrictEvents.kext`用于修复 OTA 问题，若仍然无法 OTA 请临时禁用`BluetoolFixup`，更新完毕重新启用即可
