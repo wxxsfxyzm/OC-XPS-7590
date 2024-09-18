@@ -6,9 +6,9 @@ x64 的 Hackintosh 已经时日无多，让我们且行且珍惜。
 
 ## 引导版本
 
-- OpenCore: 1.0.1 开发版（使用[Opencore Auxiliary Tools](https://github.com/ic005k/OCAuxiliaryTools)同步最新版本）
+- OpenCore: 1.0.2 开发版（使用[Opencore Auxiliary Tools](https://github.com/ic005k/OCAuxiliaryTools)同步最新版本）
 
-- MacOS: 适配 MacOS 15 public beta 1
+- MacOS: 适配 MacOS 15 正式版
 
 ## 配置信息
 
@@ -93,7 +93,7 @@ x64 的 Hackintosh 已经时日无多，让我们且行且珍惜。
 
 ## 结构目录
 
-- 最新版会提供完整的 EFI，目前仓库最新版：**1.0.1**
+- 最新版会提供完整的 EFI，目前仓库最新版：**1.0.2**
 - 建议自己使用 OCAT 进行后续维护
 
 - BOOT EFI 标准引导文件夹
@@ -149,16 +149,15 @@ x64 的 Hackintosh 已经时日无多，让我们且行且珍惜。
 
     - -igfxblt -igfxbls: 修复 Coffee Lake 核显开机黑屏问题，优化亮度调节
     - agdpmod=vit9696 独显配置
-    - alcverbs=1 用于修复耳机爆音问题
+    - alcverbs=1 用于修复声卡加载问题
     - -lilubetaall 引导测试版系统时候使用
-    -
 
   - 可选参数
 
     - -v 显示详细启动信息，可用于调试
     - igfxfw=2 启用核显固件补丁，提高性能
     - darkwake=3 睡眠小憩配置，实测设置为 darkwake=3 没有什么问题
-    - revpatch=sbvmm 配合`RestrictEvents.kext`用于修复 OTA 问题，若仍然无法 OTA 请临时禁用`BluetoolFixup`，更新完毕重新启用即可
+    - revpatch=sbvmm 配合`RestrictEvents.kext`用于修复 OTA 问题（仅支持全量 ota，增量 ota 会失败此时再次点击更新会下载全量包）
 
 ## 驱动情况
 
@@ -170,14 +169,19 @@ x64 的 Hackintosh 已经时日无多，让我们且行且珍惜。
 
 [原仓库更新日志](https://github.com/gorquan/OC-XPS-7590?tab=readme-ov-file#引导更新日志)：**原仓库更新日志请移步原仓库查看**
 
+- 2024-06-12
+
+  - 更新 OpenCore 到 1.0.1
+  - 同步最新 kexts
+
 - 2024-06-17
 
   - 完善文档
   - 补充丢失的 kexts
 
-- 2024-06-12
+- 2024-09-18
 
-  - 更新 OpenCore 到 1.0.1
+  - 更新 OpenCore 到 1.0.2
   - 同步最新 kexts
 
 ## 引导补充说明
@@ -207,6 +211,7 @@ sudo pmset -a tcpkeepalive 0 # 如果仍然睡不着可以尝试一下睡眠期�
 ```
 
 3. 除了“当显示器关闭时，防止电脑自动进入睡眠”是可选的外，请关闭设置-节能器里的所有其他选项。
+   **备注**：此条来自原作者，我全开着没啥事
 
 ### 声卡问题处理
 
