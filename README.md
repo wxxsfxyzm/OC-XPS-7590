@@ -20,7 +20,7 @@ x64 的 Hackintosh 已经时日无多，让我们且行且珍惜。
 | 内建显示屏 | SHP14BA 15.6" 1080p **非触屏** |
 | 内存       | Samsung 16GB DDR4 2666MHz x2   |
 | 板载声卡   | Realtek ALC298/ALC3266         |
-| 无限网卡   | Killer AX1650x (200NGW)        |
+| 无线网卡   | Killer AX1650x (200NGW)        |
 
 ## 使用前注意
 
